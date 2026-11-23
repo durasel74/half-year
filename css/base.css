@@ -1,0 +1,40 @@
+/* ============================================================================
+   БАЗОВЫЙ СБРОС СТИЛЕЙ
+   ----------------------------------------------------------------------------
+   В версии на Next.js эту работу выполнял Tailwind (preflight).
+   Здесь — минимальный набор, чтобы открытка выглядела одинаково
+   при открытии и через двойной клик, и через Live Server.
+   ============================================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+h1,
+p,
+footer,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+}
+
+svg {
+  display: block;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}

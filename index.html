@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>С Полугодовщиной ♥</title>
+  <meta name="description" content="Поздравляю с Полугодовщиной — любовное письмо на живом фоне из комплиментов." />
+  <meta name="theme-color" content="#2f4a50" />
+  <!-- Иконка-сердечко для вкладки браузера (цвет повторяет --pal-red из theme.css) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23d92946%22%20d%3D%22M12%2021.35l-1.45-1.32C5.4%2015.36%202%2012.28%202%208.5%202%205.42%204.42%203%207.5%203c1.74%200%203.41.81%204.5%202.09C13.09%203.81%2014.76%203%2016.5%203%2019.58%203%2022%205.42%2022%208.5c0%203.78-3.4%206.86-8.55%2011.54L12%2021.35z%22%2F%3E%3C%2Fsvg%3E" />
+
+  <!-- Локальные шрифты (Caveat и Cormorant Garamond, папка fonts/) — интернет не нужен -->
+  <link rel="stylesheet" href="css/fonts.css" />
+  <!-- Мини-сброс (в проекте это делал Tailwind preflight) -->
+  <link rel="stylesheet" href="css/base.css" />
+  <!-- Вся палитра открытки — только в theme.css -->
+  <link rel="stylesheet" href="css/theme.css" />
+  <!-- Стили и анимации открытки -->
+  <link rel="stylesheet" href="css/card.css" />
+</head>
+<body>
+
+  <!-- ══════════ Живой фон: свечения, частицы, ленточки ══════════ -->
+  <div class="backdrop" aria-hidden="true">
+    <span class="backdrop__glow backdrop__glow--wine"></span>
+    <span class="backdrop__glow backdrop__glow--ice"></span>
+    <span class="backdrop__glow backdrop__glow--teal"></span>
+
+    <!-- Частицы (боке и сердечки) генерирует js/main.js -->
+    <span class="backdrop__bokeh" id="bokeh"></span>
+
+    <span class="backdrop__vignette"></span>
+
+    <!-- Ленточки с комплиментами: генерирует js/main.js -->
+    <span class="ribbons" id="ribbons"></span>
+  </div>
+
+  <!-- ══════════ Письмо ══════════ -->
+  <div class="greeting-stage">
+    <article class="letter" id="letter">
+      <!-- Двойная рамка внутри блока -->
+      <span class="letter__frame" aria-hidden="true"></span>
+
+      <!-- Угловые завитки -->
+      <svg viewBox="0 0 48 48" class="corner corner--tl" aria-hidden="true" focusable="false">
+        <path d="M46 2 C22 2 2 22 2 46" fill="none" stroke="currentColor" stroke-width="1.4"></path>
+        <path d="M46 12 C28 12 12 28 12 46" fill="none" stroke="currentColor" stroke-width="1" opacity="0.55"></path>
+        <circle cx="46" cy="2" r="2.2" fill="currentColor"></circle>
+        <circle cx="2" cy="46" r="2.2" fill="currentColor"></circle>
+      </svg>
+      <svg viewBox="0 0 48 48" class="corner corner--tr" aria-hidden="true" focusable="false">
+        <path d="M46 2 C22 2 2 22 2 46" fill="none" stroke="currentColor" stroke-width="1.4"></path>
+        <path d="M46 12 C28 12 12 28 12 46" fill="none" stroke="currentColor" stroke-width="1" opacity="0.55"></path>
+        <circle cx="46" cy="2" r="2.2" fill="currentColor"></circle>
+        <circle cx="2" cy="46" r="2.2" fill="currentColor"></circle>
+      </svg>
+      <svg viewBox="0 0 48 48" class="corner corner--br" aria-hidden="true" focusable="false">
+        <path d="M46 2 C22 2 2 22 2 46" fill="none" stroke="currentColor" stroke-width="1.4"></path>
+        <path d="M46 12 C28 12 12 28 12 46" fill="none" stroke="currentColor" stroke-width="1" opacity="0.55"></path>
+        <circle cx="46" cy="2" r="2.2" fill="currentColor"></circle>
+        <circle cx="2" cy="46" r="2.2" fill="currentColor"></circle>
+      </svg>
+      <svg viewBox="0 0 48 48" class="corner corner--bl" aria-hidden="true" focusable="false">
+        <path d="M46 2 C22 2 2 22 2 46" fill="none" stroke="currentColor" stroke-width="1.4"></path>
+        <path d="M46 12 C28 12 12 28 12 46" fill="none" stroke="currentColor" stroke-width="1" opacity="0.55"></path>
+        <circle cx="46" cy="2" r="2.2" fill="currentColor"></circle>
+        <circle cx="2" cy="46" r="2.2" fill="currentColor"></circle>
+      </svg>
+
+      <!-- Одноразовый блик по стеклу после появления -->
+      <span class="letter__shine" aria-hidden="true"></span>
+
+      <!-- Сердечки, разбросанные по письму: генерирует js/main.js -->
+
+      <!-- Орнамент над заголовком -->
+      <span class="letter__orn" aria-hidden="true">
+        <svg viewBox="0 0 320 28" class="flourish" aria-hidden="true" focusable="false">
+          <g class="flourish__lines" stroke-width="1" opacity="0.9">
+            <path d="M8 14 H118"></path>
+            <path d="M202 14 H312"></path>
+            <path d="M20 10 H98" stroke-width="0.6" opacity="0.45"></path>
+            <path d="M222 10 H300" stroke-width="0.6" opacity="0.45"></path>
+          </g>
+          <g class="flourish__detail">
+            <circle cx="8" cy="14" r="1.6"></circle>
+            <circle cx="312" cy="14" r="1.6"></circle>
+            <rect x="126" y="10" width="8" height="8" transform="rotate(45 130 14)" opacity="0.85"></rect>
+            <rect x="186" y="10" width="8" height="8" transform="rotate(45 190 14)" opacity="0.85"></rect>
+          </g>
+          <path class="flourish__heart" transform="translate(149.6 3.6) scale(0.875)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+        </svg>
+      </span>
+
+      <!-- Тексты подставляет js/main.js из js/content.js -->
+      <p class="letter__eyebrow" id="letter-eyebrow"></p>
+      <h1 class="letter__title" id="letter-title"></h1>
+
+      <!-- Разделитель под заголовком -->
+      <span class="letter__divider" aria-hidden="true">
+        <svg viewBox="0 0 320 28" class="flourish" aria-hidden="true" focusable="false">
+          <g class="flourish__lines" stroke-width="1" opacity="0.9">
+            <path d="M8 14 H118"></path>
+            <path d="M202 14 H312"></path>
+            <path d="M20 10 H98" stroke-width="0.6" opacity="0.45"></path>
+            <path d="M222 10 H300" stroke-width="0.6" opacity="0.45"></path>
+          </g>
+          <g class="flourish__detail">
+            <circle cx="8" cy="14" r="1.6"></circle>
+            <circle cx="312" cy="14" r="1.6"></circle>
+            <rect x="126" y="10" width="8" height="8" transform="rotate(45 130 14)" opacity="0.85"></rect>
+            <rect x="186" y="10" width="8" height="8" transform="rotate(45 190 14)" opacity="0.85"></rect>
+          </g>
+          <path class="flourish__heart" transform="translate(149.6 3.6) scale(0.875)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+        </svg>
+      </span>
+
+      <div class="letter__body" id="letter-body"></div>
+
+      <footer class="letter__sign">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="letter__sign-heart" aria-hidden="true" focusable="false">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+        </svg>
+        <span class="letter__sign-text" id="letter-sign"></span>
+      </footer>
+    </article>
+  </div>
+
+  <!-- ══════════ ВРЕМЕННАЯ панель выбора темы: собирает js/main.js из js/palettes.js ══════════ -->
+  <div class="theme-panel" id="theme-panel" role="group" aria-label="Выбор цветовой темы (временная панель)"></div>
+
+  <!-- Порядок важен: сначала редактируемые данные, потом логика -->
+  <script src="js/content.js"></script>
+  <script src="js/compliments.js"></script>
+  <script src="js/palettes.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

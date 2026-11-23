@@ -1,0 +1,121 @@
+/* ============================================================================
+   ТЕМА ЦВЕТОВ ОТКРЫТКИ · единственное место, где задаются цвета
+   ----------------------------------------------------------------------------
+   Чтобы изменить палитру:
+     1) поменяйте шесть значений --pal-* в блоке ниже;
+     2) при желании подстройте производные тона во втором блоке.
+   Все остальные файлы используют только переменные отсюда (var(--...)),
+   поэтому оформление обновится автоматически.
+   ============================================================================ */
+
+:root {
+  /* ── 1. Исходная палитра ──────────────────────────────────────────────── */
+  --pal-red:  #c25a6e;   /* пыльная роза — сердца, акценты, розовая лента */
+  --pal-ice:  #f2c7cf;   /* жемчужно-розовый — свечения, светлая лента */
+  --pal-wine: #6b1f30;   /* тёмное вино — глубина фона, орнаменты */
+  --pal-teal: #a3868e;   /* пыльный тауп — линии рамки, детали */
+  --pal-mist: #eddcdc;   /* тёплый жемчуг — бумага письма, дымка */
+  --pal-deep: #473238;   /* тёмное какао — текст, основа фона */
+
+  /* Нейтральные опорные точки для смешивания оттенков */
+  --mix-white: #ffffff;
+  --mix-black: #000000;
+
+  /* ── 2. Производные тона (можно смело подстраивать) ──────────────────── */
+
+  /* Фон сцены */
+  --bg-base: linear-gradient(
+    168deg,
+    color-mix(in srgb, var(--pal-deep) 88%, var(--mix-black)) 0%,
+    color-mix(in srgb, var(--pal-deep) 62%, var(--mix-black)) 46%,
+    color-mix(in srgb, var(--pal-wine) 44%, var(--mix-black)) 100%
+  );
+  --glow-wine: color-mix(in srgb, var(--pal-wine) 55%, transparent);
+  --glow-ice:  color-mix(in srgb, var(--pal-ice) 24%, transparent);
+  --glow-teal: color-mix(in srgb, var(--pal-teal) 28%, transparent);
+  --vignette: radial-gradient(
+    120% 92% at 50% 42%,
+    transparent 52%,
+    color-mix(in srgb, var(--mix-black) 46%, transparent) 100%
+  );
+
+  /* Светящиеся частицы фона */
+  --bokeh-ice:  color-mix(in srgb, var(--pal-ice) 55%, var(--mix-white));
+  --bokeh-red:  color-mix(in srgb, var(--pal-red) 45%, var(--mix-white));
+  --bokeh-mist: color-mix(in srgb, var(--pal-mist) 70%, var(--mix-white));
+
+  /* Бумага письма */
+  --paper-bg:
+    radial-gradient(120% 90% at 50% 0%, color-mix(in srgb, var(--mix-white) 65%, transparent), transparent 55%),
+    linear-gradient(
+      178deg,
+      color-mix(in srgb, var(--mix-white) 76%, var(--pal-mist)) 0%,
+      color-mix(in srgb, var(--mix-white) 34%, var(--pal-mist)) 58%,
+      color-mix(in srgb, var(--pal-mist) 84%, var(--pal-teal) 10%) 100%
+    );
+  --paper-border: color-mix(in srgb, var(--pal-teal) 48%, var(--mix-white));
+  --ink:         color-mix(in srgb, var(--pal-deep) 92%, var(--mix-black));
+  --title-color: color-mix(in srgb, var(--pal-wine) 86%, var(--mix-black));
+  --accent-teal: color-mix(in srgb, var(--pal-teal) 80%, var(--pal-deep));
+  --shine-color: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--mix-white) 50%, transparent),
+    transparent
+  );
+
+  /* Рамка и орнаменты */
+  --frame-strong: color-mix(in srgb, var(--pal-deep) 42%, transparent);
+  --frame-soft:   color-mix(in srgb, var(--pal-teal) 44%, transparent);
+  --frame-faint:  color-mix(in srgb, var(--pal-teal) 26%, transparent);
+  --frame-deco:   color-mix(in srgb, var(--pal-wine) 72%, transparent);
+
+  /* Сердечки */
+  --heart-red:  var(--pal-red);
+  --heart-ice:  color-mix(in srgb, var(--pal-ice) 58%, var(--pal-teal));
+  --heart-teal: color-mix(in srgb, var(--pal-teal) 85%, var(--pal-deep));
+
+  /* Лента «алая» */
+  --ribbon-crimson-bg: linear-gradient(
+    104deg,
+    color-mix(in srgb, var(--pal-red) 86%, var(--mix-white)) 0%,
+    var(--pal-red) 34%,
+    color-mix(in srgb, var(--pal-wine) 68%, var(--pal-red)) 78%,
+    color-mix(in srgb, var(--pal-wine) 84%, var(--mix-black)) 100%
+  );
+  --ribbon-crimson-tail: color-mix(in srgb, var(--pal-wine) 80%, var(--mix-black));
+  --ribbon-crimson-text: color-mix(in srgb, var(--mix-white) 90%, var(--pal-mist));
+  --ribbon-crimson-tsh: 0 1px 2px color-mix(in srgb, var(--mix-black) 40%, transparent);
+  --ribbon-shine-crimson: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--mix-white) 36%, transparent),
+    transparent
+  );
+
+  /* Лента «ледяная» */
+  --ribbon-ice-bg: linear-gradient(
+    104deg,
+    color-mix(in srgb, var(--pal-ice) 52%, var(--mix-white)) 0%,
+    color-mix(in srgb, var(--pal-ice) 40%, var(--pal-mist)) 45%,
+    color-mix(in srgb, var(--pal-mist) 82%, var(--mix-white)) 100%
+  );
+  --ribbon-ice-tail: color-mix(in srgb, var(--pal-teal) 70%, var(--pal-deep));
+  --ribbon-ice-text: color-mix(in srgb, var(--pal-deep) 88%, var(--mix-black));
+  --ribbon-ice-tsh: 0 1px 2px color-mix(in srgb, var(--mix-white) 55%, transparent);
+  --ribbon-shine-ice: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--mix-white) 62%, transparent),
+    transparent
+  );
+
+  /* Тени */
+  --shadow-card:
+    0 34px 90px -28px color-mix(in srgb, var(--mix-black) 55%, transparent),
+    0 12px 46px -16px color-mix(in srgb, var(--pal-wine) 35%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--mix-white) 16%, transparent);
+  --shadow-ribbon:
+    0 10px 26px -8px color-mix(in srgb, var(--mix-black) 45%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--mix-white) 28%, transparent);
+}
